@@ -1,0 +1,255 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+
+    --body-background-color: black;
+
+    --button-search-color: hsla(195, 91%, 25%, 1);
+    --input-search-color: hsla(191, 65%, 7%, 1);
+
+    --table-head-color: hsla(194, 72%, 13%, 1);
+    --table-row-odd-color: hsla(192, 65%, 7%, 1);
+    --table-row-even-color: hsla(195, 61%, 6%, 0.5);
+
+}
+
+body {
+    background-color: var(--body-background-color);
+
+    font-size: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+body * {
+    font-family: 'Roboto', sans-serif;
+}
+
+#app {
+    margin: 5rem auto;
+    padding: 1rem;
+    width: 42rem;
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+}
+
+.search {
+    display: flex;
+    gap: .3rem;
+}
+
+.search input {
+    background-color: var(--input-search-color);
+    border: none;
+    border-radius: .5rem;
+    padding: 1.6rem;
+    width: 15rem;
+
+    font-size: 1rem;
+    color: white;
+}
+
+.search button {
+    background-color: var(--button-search-color);
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+
+    border: none;
+    border-radius: .5rem;
+
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    font-size: 1rem;
+    padding: 1rem;
+
+    cursor: pointer;
+
+    transition: all 350ms;
+}
+
+.search button:hover {
+    background-color: white;
+    color: var(--button-search-color);
+}
+
+.search button:hover svg path{
+    fill: var(--button-search-color);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+section{
+    margin-top: 4.5rem;
+    border-radius: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+table {
+    border-collapse: collapse;
+    outline: 1px solid hsla(191, 31%, 42%, 1);
+    border-radius: 1.2rem;
+}
+
+table thead {
+    background: var(--table-head-color);
+}
+
+table th:first-child {
+    border-top-left-radius: 1.2rem;
+}
+
+table th:last-child {
+    border-top-right-radius: 1.2rem;
+}
+
+table th, table td {
+    color: white;
+    font-size: 1.3rem;
+    text-align: center;
+
+    padding: .5rem;
+}
+
+table td {
+    padding: 1rem;
+}
+
+table tbody tr + tr {
+    border-top: 1px solid hsla(191, 31%, 42%, 1);
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: var(--table-row-even-color);
+}
+
+table tbody tr:nth-child(even) {
+    background-color: var(--table-row-odd-color);
+}
+
+table tbody td:first-child {
+    border-bottom-left-radius: 1.2rem;
+}
+
+table tbody td:last-child {
+    border-bottom-right-radius: 1.2rem;
+}
+
+table td img {
+    width: clamp(3rem,3.5rem + 1vw,5rem);
+    height: clamp(3rem,3.5rem + 1vw,5rem);
+    border-radius: 50%;
+}
+
+table td a {
+    text-decoration: none;
+    font-weight: 700;
+    color: white;
+}
+
+table td a span {
+    font-weight: 400;
+    color: #E1E1E6;
+}
+
+table td button {
+    background: none;
+    border: none;
+    color: red;
+    font-size: clamp(.8rem ,.8rem + 1vw, 1.6rem);
+
+    cursor: pointer;
+}
+
+.empty-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+
+    height: 45rem;
+    padding: 3rem;
+
+    color: hsla(189, 4%, 32%, 1);
+    font-weight: 700;
+    font-size: 3rem;
+}
+
+.hide {
+    display: none;
+}
+
+@media(min-width: 600px) {
+    #app {
+        padding: 2.5rem;
+        width: clamp(40rem, 40rem + 13vw, 112rem)
+    }
+
+    .input-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    
+        margin-top: 11.5rem;
+    }
+
+    .search input {
+        width: clamp(10rem,12rem + 5vw,46.2rem);
+    }
+
+    .search button {
+        padding: 1.2rem 3.2rem;
+    }
+}
+
+@media(min-width: 1000px) {
+    #app {
+        width: 112rem;
+    }
+
+    .input-wrapper {
+        margin-top: .5rem;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    table th, table td {
+        font-size: 1.6rem;
+        padding: 2rem;
+        text-align: left;
+    }
+
+    table td.user{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+    }
+}
